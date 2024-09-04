@@ -5,13 +5,13 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { BidsNBuysBoardComponent } from "./export-result/bids-n-buys-board/bids-n-buys-board.component";
-import { DesktopNavForUserComponent } from "./export-result/desktop-nav-for-user/desktop-nav-for-user.component";
-import { FooterDesktopComponent } from "./export-result/footer-desktop/footer-desktop.component";
-import { Frame571Component } from "./export-result/frame-571/frame-571.component";
-import { ToggleAllComponent } from "./export-result/toggle-all/toggle-all.component";
-import { NavListComponent } from "./export-result/nav-list/nav-list.component";
-import { ToggleButtonComponent } from "./export-result/toggle-button/toggle-button.component";
+import { BidsNBuysBoardComponent } from "./pages/bids-n-buys-board/bids-n-buys-board.component";
+import { DesktopNavForUserComponent } from "./pages/desktop-nav-for-user/desktop-nav-for-user.component";
+import { FooterDesktopComponent } from "./pages/footer-desktop/footer-desktop.component";
+import { Frame571Component } from "./pages/frame-571/frame-571.component";
+import { ToggleAllComponent } from "./pages/toggle-all/toggle-all.component";
+import { NavListComponent } from "./pages/nav-list/nav-list.component";
+import { ToggleButtonComponent } from "./pages/toggle-button/toggle-button.component";
 
 @NgModule({
   declarations: [
