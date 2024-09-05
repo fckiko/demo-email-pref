@@ -1,3 +1,56 @@
-<div class="content">
-  <app-bids-n-buys-board></app-bids-n-buys-board>
- </div>
+<section class="email-preferences-section">
+  <div class="content-wrapper">
+    <header class="header">
+      <h1 class="title">Email Preferences</h1>
+      <p class="description">
+        Lorem ipsum dolor sit amet consectetur. Dictum arcu pulvinar
+        sollicitudin in praesent donec lectus aliquam mauris. Malesuada pharetra
+        et ut ac id leo velit. Adipiscing sed porta nisi vitae sit faucibus sed.
+        Aliquet ut maecenas habitasse vitae mattis.
+      </p>
+    </header>
+    <div class="preferences-container">
+      <form [formGroup]="emailPreferencesForm" (ngSubmit)="updatePreferences()">
+        <div class="preferences-wrapper">
+          <div class="preferences-grid">
+            <div class="preference-card" *ngFor="let preference of emailPreferencesForm.controls | keyvalue">
+              <div class="icon-wrapper">
+                <img src="https://img.jlmconsulting.services/fit-in/60x60/sls_1725512317811email_icon.svg" alt="" class="icon" />
+              </div>
+              <div class="card-content">
+                <h2 class="card-title">{{preference.key | titlecase}}</h2>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur. Dictum arcu pulvinar
+                  sollicitudin in praesent donec lectus aliquam mauris. Malesuada
+                  pharetra et ut ac id leo velit.
+                </p>
+              </div>
+              <div class="toggle-wrapper">
+                <p-inputSwitch [formControlName]="preference.key" (onChange)="togglePreference(preference.key)"></p-inputSwitch>
+                <span class="toggle-status">{{ emailPreferencesForm.get(preference.key)?.value ? 'On' : 'Off' }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="unsubscribe-wrapper">
+            <div class="unsubscribe-content">
+              <p class="unsubscribe-text">
+                Unsubscribe me from all email categories above.
+              </p>
+              <p-inputSwitch formControlName="unsubscribeAll" (onChange)="togglePreference('Unsubscribe All')"></p-inputSwitch>
+            </div>
+            <button class="update-button" type="submit">Update my Preferences</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <p class="footer-text">
+      Lorem ipsum dolor sit amet consectetur. Dictum arcu pulvinar sollicitudin
+      in praesent donec lectus aliquam mauris. Malesuada pharetra et ut ac id
+      leo velit. Adipiscing sed porta nisi vitae sit faucibus sed. Aliquet ut
+      maecenas
+      <a href="#" style="text-decoration: underline; color: #2b2eff">
+        Policy Notice
+      </a>
+    </p>
+  </div>
+</section>
