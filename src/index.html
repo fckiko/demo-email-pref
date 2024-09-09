@@ -11,3 +11,14 @@
   <app-root></app-root>
 </body>
 </html>
+<!-- SELECT
+  "stage",                -- Stage of the purchase journey
+  COUNT(*) AS "stage_count"  -- Count of records for each stage
+FROM
+  "core-analytics-data"
+WHERE
+  "stage" IS NOT NULL      -- Ensure only non-null stages are considered
+GROUP BY
+  "stage"                  -- Group by purchase journey stages
+ORDER BY
+  "stage_count" DESC       -- Order by the count, most common stages first -->

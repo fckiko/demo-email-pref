@@ -123,7 +123,9 @@
     padding: 20px 20px;
   }
 }
-
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: #BE92E7;
+}
 // .icon-wrapper {
 //   border-radius: 30px;
 //   background-color: #be92e7;
@@ -272,7 +274,7 @@
   align-self: center;
   border-radius: 50px;
   background-color: #be92e7;
-  margin-top: 14px;
+  margin-top: 40px;
   color: #fff;
   letter-spacing: 0.18px;
   padding: 20px;

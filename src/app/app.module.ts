@@ -5,6 +5,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    InputSwitchModule
+    InputSwitchModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
