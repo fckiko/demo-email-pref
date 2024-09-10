@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
       unsubscribeAll: [false],
     });
 
-    // Load saved preferences from localStorage
     const savedPreferences = localStorage.getItem('emailPreferences');
     if (savedPreferences) {
       this.emailPreferencesForm.setValue(JSON.parse(savedPreferences));
@@ -41,16 +40,19 @@ export class AppComponent implements OnInit {
   }
 
   togglePreference(category: string) {
-    console.log(`${category} preference changed:`, this.emailPreferencesForm.get(category)?.value);
-    // Save preferences to localStorage whenever a preference is toggled
-    localStorage.setItem('emailPreferences', JSON.stringify(this.emailPreferencesForm.value));
+    if (!this.emailPreferencesForm.get('unsubscribeAll')?.value) {
+      console.log(`${category} preference changed:`, this.emailPreferencesForm.get(category)?.value);
+      localStorage.setItem('emailPreferences', JSON.stringify(this.emailPreferencesForm.value));
+      this.sendToApi();
+    }
   }
 
   updatePreferences() {
-    console.log("Preferences updated", this.emailPreferencesForm.value);
-    // Save preferences to localStorage when preferences are updated
-    localStorage.setItem('emailPreferences', JSON.stringify(this.emailPreferencesForm.value));
-    this.sendToApi();
+    if (!this.emailPreferencesForm.get('unsubscribeAll')?.value) {
+      console.log("Preferences updated", this.emailPreferencesForm.value);
+      localStorage.setItem('emailPreferences', JSON.stringify(this.emailPreferencesForm.value));
+      this.sendToApi();
+    }
   }
 
   handleUnsubscribeAllChange(isUnsubscribed: boolean) {
@@ -65,12 +67,14 @@ export class AppComponent implements OnInit {
   }
 
   async sendToApi() {
-    await this.http.post('https://webhook-test.com/76cd2d54dbf09d66e4131a147cb6d149', {
-      data: this.emailPreferencesForm.value
-    }).subscribe(response => {
-      console.log("Data sent successfully");
-    }, error => {
-      console.error("Error sending data", error);
-    });
+    if (!this.emailPreferencesForm.get('unsubscribeAll')?.value) {
+      await this.http.post('https://webhook-test.com/c8363eed2f7b27e16e6ed6e7d16fb3ac', {
+        data: this.emailPreferencesForm.value
+      }).subscribe(response => {
+        console.log("Data sent successfully");
+      }, error => {
+        console.error("Error sending data", error);
+      });
+    }
   }
-}
+} 
