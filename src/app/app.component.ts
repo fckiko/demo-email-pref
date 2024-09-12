@@ -12,6 +12,7 @@ import { OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   emailPreferencesForm: FormGroup;
   queryParams: any;
+  title: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
     this.emailPreferencesForm = this.fb.group({
